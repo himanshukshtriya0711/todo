@@ -19,16 +19,16 @@ def todo(request):
 #========================ADD_todo=================
 
 def add_todo(request):
-    if request.method=="POST":
-        user_task = request.POST.get("text")
-        user_created_at = request.POST.get("created_at")
+    # if request.method=="POST":
+    #     user_task = request.POST.get("text")
+    #     user_created_at = request.POST.get("created_at")
         
         
-        new_todo = Todo(
-            text = user_task, created_at = user_created_at #Object create kara hai naya
-            )
-        new_todo.save()
-        return redirect ("todo") 
+    #     new_todo = Todo(
+    #         text = user_task, created_at = user_created_at #Object create kara hai naya
+    #         )
+    #     new_todo.save()
+    #     return redirect ("todo") 
         
     return render(request,"add_todo.html")
 
