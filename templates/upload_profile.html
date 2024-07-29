@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+<div class="container mt-5">
+    <h2 class="mb-4">Upload Profile Picture</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <div class="form-group">
+            <label for="profilePicUpload" class="btn btn-primary">
+                Choose Profile Picture
+                <input type="file" id="profilePicUpload" class="form-control-file" style="display: none;" accept="image" name ="profile_pic">
+            </label>
+            <span id="file-name" class="ml-2"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Upload</button>
+    </form>
+</div>
+
+
+{% endblock %}

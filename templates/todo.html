@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    nav {                                   
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        flex: 1;
+    }
+    nav ul li {
+        margin: 0 15px;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+    .todo-button {
+        margin-left: 15px;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        background-color: #28a745;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .todo-button:hover {
+        background-color: #218838;
+    }
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        position: static;
+        bottom: 0;
+    }
+    .todo_url{
+        color: black;
+    }
+</style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="todo.html">To-Do List</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <h1>To-Do Tasks({{ todos.count }})</h1>
+    <button class="todo-button" ><a class="todo_url" href="{% url 'add_todo' %}">Add To-Do</a></button>
+    
+    
+    <table>
+        <thead>
+           
+            <tr>
+                <th>Task</th>
+                
+                <th>date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="task-table">
+            {% for todo in todos %}
+            <tr>
+                <td>{{ forloop.counter }}. {{ todo.text }}</td>
+                
+                <td>{{ todo.created_at }}</td>
+                <td><a href="{% url 'delete_todo' todo.id %}" class = "btn btn-danger btn-sm" onclick="deleteTask(this)">Delete</a>
+                    <a href="{% url 'update_todo' todo.id %}" class = "btn btn-success btn-sm" onclick="deleteTask(this)">Update</a>
+                    <a href="{% url 'mark_complete' todo.id %}" class = "btn btn-success btn-sm" onclick="deleteTask(this)">completed</a>
+                </td>
+            </tr>
+            {% endfor %}
+            
+
+            
+        </tbody>
+    </table>
+</div>
+<footer>
+    &copy; 2024 To-Do List App. All rights reserved.
+</footer>
+{% endblock %}

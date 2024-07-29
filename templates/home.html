@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f4f4f4;
+    }
+    nav {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        margin: 0 15px;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+    .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+    }
+    .container h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .container p {
+        color: #666;
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+    .container button {
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        background-color: #28a745;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .container button:hover {
+        background-color: #218838;
+    }
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #333;
+        color: #fff;
+        position: static;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="todo.html">To-Do List</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="{% url 'upload_profile' %}">Upload Profile</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <h1>Welcome to the To-Do List App</h1>
+    <p>Your productivity partner. Get started by creating your first task.</p>
+    <button onclick="window.location.href='todo.html'"><a href="{% url 'login' %}">Get Started</a></button>
+</div>
+<footer>
+    &copy; 2024 To-Do List App. All rights reserved.
+</footer>
+
+
+{% endblock %}
