@@ -2,18 +2,18 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1 class="text-center">Add ToDo</h1>
+    <h1 class="text-center text-dark">Add ToDo</h1>
     <form class="mt-4" method = "POST">
       {% csrf_token %}
       <div class="form-group">
-        <label for="taskName">Task Name</label>
+        <label style="color: white;" for="taskName">Task Name</label>
         <input type="text" class="form-control" id="taskName" name = "text" placeholder="Enter task name">
       </div>
       <div class="form-group">
-        <label for="taskDescription">Task date</label>
-        <input class="form-control" id="taskDescription" type="date" name="created_at" placeholder="Enter task description">
+        <label for="taskDescription" style="color: white;">Task date</label>
+        <input class="form-control"  id="taskDescription" type="date" name="created_at" placeholder="Enter task description">
       </div>
-      <button type="submit" class="btn btn-primary">Add Task</button>
+      <button type="submit" class="btn btn-primary mt-4">Add Task</button>
     </form>
   </div>
 

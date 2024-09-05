@@ -9,7 +9,7 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">BrandName</a>
+        <a class="navbar-brand" href="#">TO-DO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,30 +41,31 @@
                 <div class="card mt-5">
                     <div class="card-body">
                         <h3 class="card-title text-center">Register</h3>
-                        <form>
-                            <div class="form-group">
-                                <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+                        <form method="post">
+                            {% csrf_token %}
+                            {% comment %} <div class="form-group">
+                                <label for="firstName"></label>
+                                <input type="text" name ="first_name"class="form-control" id="firstName" placeholder="Enter first name">
                             </div>
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
-                            </div>
+                                <input type="text" name = "last_name" class="form-control" id="lastName" placeholder="Enter last name">
+                            </div> {% endcomment %}
                             <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <label for="email">Username</label>
+                                <input type="text" name ="username" class="form-control" id="email" placeholder="Enter username">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password">
+                                <input type="password" name = "password" class="form-control" id="password" placeholder="Password">
                             </div>
-                            <div class="form-group">
+                            {% comment %} <div class="form-group">
                                 <label for="confirmPassword">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
-                            </div>
+                            </div> {% endcomment %}
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
                             <p class = "mx-4 mt-2">
-                                already have account?? <a href="{% url 'login' %}">login</a>
+                                already have account?? <a href="{% url 'login' %}">login here</a>
                             </p>
                         </form>
                     </div>

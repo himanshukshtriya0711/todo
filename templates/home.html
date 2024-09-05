@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block body %}
 <style>
     body {
@@ -75,18 +76,19 @@
     }
 </style>
 
+
 <nav>
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="todo.html">To-Do List</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="{% url 'upload_profile' %}">Upload Profile</a></li>
+        <li><a href="{% url 'register' %}">register</a></li>
+        <li><a href="{% url 'login' %}">login</a></li>
     </ul>
 </nav>
 <div class="container">
-    <h1>Welcome to the To-Do List App</h1>
+    <h1 class = "text-light">Welcome to the To-Do List App</h1>
     <p>Your productivity partner. Get started by creating your first task.</p>
-    <button onclick="window.location.href='todo.html'"><a href="{% url 'login' %}">Get Started</a></button>
+    <button onclick="window.location.href='todo.html'"><a style="text-decoration:none ; color:white" href="{% url 'login' %}">Get Started</a></button>
 </div>
 <footer>
     &copy; 2024 To-Do List App. All rights reserved.

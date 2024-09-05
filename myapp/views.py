@@ -9,26 +9,29 @@ def home(request):
 #========================Todo======================
 
 def todo(request):
-    todos = Todo.objects.filter(is_completed=False)
+    user = request.user
+    todos = Todo.objects.filter(is_completed=False,user = user) #left wla model wla or right wla just iske upr variable wla 
     parameter={
         "todos":todos,
-        
+                         
     }
     return render(request,"todo.html",parameter)
 
 #========================ADD_todo=================
 
 def add_todo(request):
-    # if request.method=="POST":
-    #     user_task = request.POST.get("text")
-    #     user_created_at = request.POST.get("created_at")
+    if request.method=="POST":
+        # template se view mein daal raa hoon
+        user_task = request.POST.get("text")
+        user_created_at = request.POST.get("created_at")
         
-        
-    #     new_todo = Todo(
-    #         text = user_task, created_at = user_created_at #Object create kara hai naya
-    #         )
-    #     new_todo.save()
-    #     return redirect ("todo") 
+        #view wala data model mein save kar raa hoon
+        new_todo = Todo(
+            user  = request.user,
+            text = user_task, created_at = user_created_at #Object create kara hai naya
+            )
+        new_todo.save()
+        return redirect ("todo") 
         
     return render(request,"add_todo.html")
 

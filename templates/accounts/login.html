@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
 <body>
+    <style>
+        .container{
+            backdrop-filter: blur(10px);
+        }
+    </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">BrandName</a>
+        <a class="navbar-brand" href="#">TO-DO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,14 +40,15 @@
                 <div class="card mt-5">
                     <div class="card-body">
                         <h3 class="card-title text-center">Login</h3>
-                        <form>
+                        <form method = "post">
+                            {% csrf_token %}
                             <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <label for="email">user_name</label>
+                                <input type="text" name ="name" class="form-control" id="email" placeholder="Enter name">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password">
+                                <input type="password" name = "password" class="form-control" id="password" placeholder="Password">
                             </div>
                             <p class="mx-3">dont have account?? <a href="{% url 'register' %}">register me</a></p>
                             <button type="submit" class="btn btn-primary btn-block">Login</button>

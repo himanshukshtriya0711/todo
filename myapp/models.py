@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Todo(models.Model):
+    user = models.ForeignKey(User,on_delete = models.CASCADE)
     text = models.TextField()
     created_at = models.DateField()
     is_completed = models.BooleanField(default=False)
